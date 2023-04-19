@@ -48,15 +48,12 @@
             <div class="row text-center">
                 <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-microphone fa-stack-1x fa-inverse"></i></span>
                     <h4 class="section-heading">Recording&nbsp;</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                 </div>
                 <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-headphones fa-stack-1x fa-inverse"></i></span>
                     <h4 class="section-heading">Mixing</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                 </div>
                 <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-music fa-stack-1x fa-inverse"></i></span>
                     <h4 class="section-heading">Mastering</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
                 </div>
             </div>
         </div>
@@ -139,7 +136,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="text-uppercase">Book A Session</h2>
-                    <h3 class="text-muted section-subheading">Text</h3>
+                    <br/><br/>
                 </div>
             </div>
             <div class="row">
@@ -171,6 +168,25 @@
                             <td>R200 Per Track</td>
                         </tr>
                     </table>
+                    <br/>
+                    <h4>Pay Deposit</h4>
+                    <center>
+                    <form name="PayFastPayNowForm" action="https://www.payfast.co.za/eng/process" method="post">
+                        <input required type="hidden" name="cmd" value="_paynow">
+                        <input required type="hidden" name="receiver" pattern="[0-9]" value="22359157">
+                        <input type="hidden" name="return_url" value="https://www.cosmicrec.co.za">
+                        <input type="hidden" name="cancel_url" value="https://www.cosmicrec.co.za">
+                        <input required type="hidden" name="amount" value="100">
+                        <input required type="hidden" name="item_name" maxlength="255" value="Studio Session Deposit">
+                        <table>
+                        <tr>
+                        <td colspan=2 align=center>
+                        <input type="image" src="https://my.payfast.io/images/buttons/PayNow/Primary-Large-PayNow.png" alt="Pay Now" title="Pay Now with Payfast">
+                        </td>
+                        </tr>
+                        </table>
+                    </form>
+                    </center>
                 </div>
                 <div class="col">
                     <!-- Calendly inline widget begin -->
@@ -210,7 +226,7 @@
             </div>
         </div>
     </section>
-    <section id="contact" style="background-image:url('assets/img/map-image.png');">
+    <section id="contact" style="background-image:ur  l('assets/img/map-image.png');">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -220,7 +236,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <form id="contactForm" name="contactForm" novalidate="novalidate">
+                    <form id="contactForm" name="contactForm" novalidate="novalidate" onsubmit="sendEmail(); reset(); return false;">
                         <div class="form-row">
                             <div class="col col-md-6">
                                 <div class="form-group"><input class="form-control" type="text" id="name" placeholder="Your Name *" required=""><small class="form-text text-danger flex-grow-1 help-block lead"></small></div>
@@ -238,6 +254,19 @@
                         </div>
                     </form>
                 </div>
+                <script>
+                    function sendEmail(){
+                        Email.send({
+                            Host : "smtp.zoho.com",
+                            Username : "admin@cosmicrec.co.za",
+                            Password : "Re2o73$@0721",
+                            To : "admin@cosmicrec.co.za",
+                            From : document.getElementById("email").value,
+                            Subject : "",
+                            Body : " "
+                        })
+                    }
+                </script>
             </div>
         </div>
     </section>
